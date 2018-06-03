@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/onrik/logrus/filename"
 	log "github.com/sirupsen/logrus"
-	"github.com/jiaxuanzhou/simple-controller/cmd/jx-controller/app/options"
+	"github.com/jiaxuanzhou/jx-controller/cmd/jx-controller/app/options"
 
 	"flag"
 )

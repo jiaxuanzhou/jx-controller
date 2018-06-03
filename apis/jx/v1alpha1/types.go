@@ -15,6 +15,7 @@ const (
 	// Defaults for the Spec
 	JXPort   = 9999
 	Replicas = 1
+	EnvJxNamespace = "JX_NAMESPACE"
 )
 
 const (
