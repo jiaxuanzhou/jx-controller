@@ -35,9 +35,9 @@ ${CODEGEN_PKG}/generate-groups.sh "all" \
  --go-header-file hack/boilerplate/boilerplate.go.txt
 
 # Notice: The code in code-generator does not generate defaulter by default.
-echo "Generating defaulters for v1alpha1"
-${GOPATH}/bin/defaulter-gen  --input-dirs github.com/jiaxuanzhou/jx-controller/pkg/apis/jx/v1alpha1 -O zz_generated.defaults --go-header-file hack/boilerplate/boilerplate.go.txt "$@"
-
-echo "Generating OpenAPI specification for v1alpha1"
-${GOPATH}/bin/openapi-gen --input-dirs github.com/jiaxuanzhou/jx-controller/pkg/apis/jx/v1alpha1,k8s.io/api/core/v1 --output-package github.com/jiaxuanzhou/jx-controller/pkg/apis/jx/v1alpha1 --go-header-file hack/boilerplate/boilerplate.go.txt "$@"
-cd - > /dev/null
+#echo "Generating defaulters for v1alpha1"
+#${GOPATH}/bin/defaulter-gen  --input-dirs github.com/jiaxuanzhou/jx-controller/pkg/apis/jx/v1alpha1 -O zz_generated.defaults --go-header-file hack/boilerplate/boilerplate.go.txt "$@"
+#
+#echo "Generating OpenAPI specification for v1alpha1"
+#${GOPATH}/bin/openapi-gen --input-dirs github.com/jiaxuanzhou/jx-controller/pkg/apis/jx/v1alpha1,k8s.io/api/core/v1 --output-package github.com/jiaxuanzhou/jx-controller/pkg/apis/jx/v1alpha1 --go-header-file hack/boilerplate/boilerplate.go.txt "$@"
+#cd - > /dev/null#
