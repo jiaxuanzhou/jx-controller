@@ -3,18 +3,11 @@ package main
 import (
 	"github.com/jiaxuanzhou/jx-controller/cmd/jx-controller/app"
 	"github.com/jiaxuanzhou/jx-controller/cmd/jx-controller/app/options"
-	"github.com/onrik/logrus/filename"
-	log "github.com/sirupsen/logrus"
+	"github.com/golang/glog"
 
 	"flag"
 )
 
-func init() {
-	// Add filename as one of the fields of the structured log message
-	filenameHook := filename.NewHook()
-	filenameHook.Field = "filename"
-	log.AddHook(filenameHook)
-}
 
 func main() {
 	s := options.NewServerOption()
@@ -22,13 +15,7 @@ func main() {
 
 	flag.Parse()
 
-	if s.JsonLogFormat {
-		// Output logs in a json format so that it can be parsed by services like Stackdriver
-		log.SetFormatter(&log.JSONFormatter{})
-	}
-
 	if err := app.Run(s); err != nil {
-		log.Fatalf("%v\n", err)
+		glog.Fatalf("%v\n", err)
 	}
-
 }
