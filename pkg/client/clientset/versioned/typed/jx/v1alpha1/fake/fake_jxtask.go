@@ -28,13 +28,13 @@ import (
 
 // FakeJxTasks implements JxTaskInterface
 type FakeJxTasks struct {
-	Fake *FakeJxV1alpha1
+	Fake *FakeJiaxuanV1alpha1
 	ns   string
 }
 
-var jxtasksResource = schema.GroupVersionResource{Group: "jx", Version: "v1alpha1", Resource: "jxtasks"}
+var jxtasksResource = schema.GroupVersionResource{Group: "jiaxuan.org", Version: "v1alpha1", Resource: "jxtasks"}
 
-var jxtasksKind = schema.GroupVersionKind{Group: "jx", Version: "v1alpha1", Kind: "JxTask"}
+var jxtasksKind = schema.GroupVersionKind{Group: "jiaxuan.org", Version: "v1alpha1", Kind: "JxTask"}
 
 // Get takes name of the jxTask, and returns the corresponding jxTask object, and an error if there is any.
 func (c *FakeJxTasks) Get(name string, options v1.GetOptions) (result *v1alpha1.JxTask, err error) {

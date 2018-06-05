@@ -18,8 +18,8 @@ package fake
 
 import (
 	clientset "github.com/jiaxuanzhou/jx-controller/pkg/client/clientset/versioned"
-	jxv1alpha1 "github.com/jiaxuanzhou/jx-controller/pkg/client/clientset/versioned/typed/jx/v1alpha1"
-	fakejxv1alpha1 "github.com/jiaxuanzhou/jx-controller/pkg/client/clientset/versioned/typed/jx/v1alpha1/fake"
+	jiaxuanv1alpha1 "github.com/jiaxuanzhou/jx-controller/pkg/client/clientset/versioned/typed/jx/v1alpha1"
+	fakejiaxuanv1alpha1 "github.com/jiaxuanzhou/jx-controller/pkg/client/clientset/versioned/typed/jx/v1alpha1/fake"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/discovery"
@@ -69,12 +69,12 @@ func (c *Clientset) Discovery() discovery.DiscoveryInterface {
 
 var _ clientset.Interface = &Clientset{}
 
-// JxV1alpha1 retrieves the JxV1alpha1Client
-func (c *Clientset) JxV1alpha1() jxv1alpha1.JxV1alpha1Interface {
-	return &fakejxv1alpha1.FakeJxV1alpha1{Fake: &c.Fake}
+// JiaxuanV1alpha1 retrieves the JiaxuanV1alpha1Client
+func (c *Clientset) JiaxuanV1alpha1() jiaxuanv1alpha1.JiaxuanV1alpha1Interface {
+	return &fakejiaxuanv1alpha1.FakeJiaxuanV1alpha1{Fake: &c.Fake}
 }
 
-// Jx retrieves the JxV1alpha1Client
-func (c *Clientset) Jx() jxv1alpha1.JxV1alpha1Interface {
-	return &fakejxv1alpha1.FakeJxV1alpha1{Fake: &c.Fake}
+// Jiaxuan retrieves the JiaxuanV1alpha1Client
+func (c *Clientset) Jiaxuan() jiaxuanv1alpha1.JiaxuanV1alpha1Interface {
+	return &fakejiaxuanv1alpha1.FakeJiaxuanV1alpha1{Fake: &c.Fake}
 }

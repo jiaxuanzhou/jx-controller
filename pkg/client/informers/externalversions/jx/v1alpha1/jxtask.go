@@ -59,13 +59,13 @@ func NewFilteredJxTaskInformer(client versioned.Interface, namespace string, res
 				if tweakListOptions != nil {
 					tweakListOptions(&options)
 				}
-				return client.JxV1alpha1().JxTasks(namespace).List(options)
+				return client.JiaxuanV1alpha1().JxTasks(namespace).List(options)
 			},
 			WatchFunc: func(options v1.ListOptions) (watch.Interface, error) {
 				if tweakListOptions != nil {
 					tweakListOptions(&options)
 				}
-				return client.JxV1alpha1().JxTasks(namespace).Watch(options)
+				return client.JiaxuanV1alpha1().JxTasks(namespace).Watch(options)
 			},
 		},
 		&jx_v1alpha1.JxTask{},

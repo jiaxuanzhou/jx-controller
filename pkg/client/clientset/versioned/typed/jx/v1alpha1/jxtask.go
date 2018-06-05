@@ -51,7 +51,7 @@ type jxTasks struct {
 }
 
 // newJxTasks returns a JxTasks
-func newJxTasks(c *JxV1alpha1Client, namespace string) *jxTasks {
+func newJxTasks(c *JiaxuanV1alpha1Client, namespace string) *jxTasks {
 	return &jxTasks{
 		client: c.RESTClient(),
 		ns:     namespace,

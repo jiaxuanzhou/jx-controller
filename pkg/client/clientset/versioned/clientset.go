@@ -17,7 +17,7 @@
 package versioned
 
 import (
-	jxv1alpha1 "github.com/jiaxuanzhou/jx-controller/pkg/client/clientset/versioned/typed/jx/v1alpha1"
+	jiaxuanv1alpha1 "github.com/jiaxuanzhou/jx-controller/pkg/client/clientset/versioned/typed/jx/v1alpha1"
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"
@@ -25,27 +25,27 @@ import (
 
 type Interface interface {
 	Discovery() discovery.DiscoveryInterface
-	JxV1alpha1() jxv1alpha1.JxV1alpha1Interface
+	JiaxuanV1alpha1() jiaxuanv1alpha1.JiaxuanV1alpha1Interface
 	// Deprecated: please explicitly pick a version if possible.
-	Jx() jxv1alpha1.JxV1alpha1Interface
+	Jiaxuan() jiaxuanv1alpha1.JiaxuanV1alpha1Interface
 }
 
 // Clientset contains the clients for groups. Each group has exactly one
 // version included in a Clientset.
 type Clientset struct {
 	*discovery.DiscoveryClient
-	jxV1alpha1 *jxv1alpha1.JxV1alpha1Client
+	jiaxuanV1alpha1 *jiaxuanv1alpha1.JiaxuanV1alpha1Client
 }
 
-// JxV1alpha1 retrieves the JxV1alpha1Client
-func (c *Clientset) JxV1alpha1() jxv1alpha1.JxV1alpha1Interface {
-	return c.jxV1alpha1
+// JiaxuanV1alpha1 retrieves the JiaxuanV1alpha1Client
+func (c *Clientset) JiaxuanV1alpha1() jiaxuanv1alpha1.JiaxuanV1alpha1Interface {
+	return c.jiaxuanV1alpha1
 }
 
-// Deprecated: Jx retrieves the default version of JxClient.
+// Deprecated: Jiaxuan retrieves the default version of JiaxuanClient.
 // Please explicitly pick a version.
-func (c *Clientset) Jx() jxv1alpha1.JxV1alpha1Interface {
-	return c.jxV1alpha1
+func (c *Clientset) Jiaxuan() jiaxuanv1alpha1.JiaxuanV1alpha1Interface {
+	return c.jiaxuanV1alpha1
 }
 
 // Discovery retrieves the DiscoveryClient
@@ -64,7 +64,7 @@ func NewForConfig(c *rest.Config) (*Clientset, error) {
 	}
 	var cs Clientset
 	var err error
-	cs.jxV1alpha1, err = jxv1alpha1.NewForConfig(&configShallowCopy)
+	cs.jiaxuanV1alpha1, err = jiaxuanv1alpha1.NewForConfig(&configShallowCopy)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func NewForConfig(c *rest.Config) (*Clientset, error) {
 // panics if there is an error in the config.
 func NewForConfigOrDie(c *rest.Config) *Clientset {
 	var cs Clientset
-	cs.jxV1alpha1 = jxv1alpha1.NewForConfigOrDie(c)
+	cs.jiaxuanV1alpha1 = jiaxuanv1alpha1.NewForConfigOrDie(c)
 
 	cs.DiscoveryClient = discovery.NewDiscoveryClientForConfigOrDie(c)
 	return &cs
@@ -89,7 +89,7 @@ func NewForConfigOrDie(c *rest.Config) *Clientset {
 // New creates a new Clientset for the given RESTClient.
 func New(c rest.Interface) *Clientset {
 	var cs Clientset
-	cs.jxV1alpha1 = jxv1alpha1.New(c)
+	cs.jiaxuanV1alpha1 = jiaxuanv1alpha1.New(c)
 
 	cs.DiscoveryClient = discovery.NewDiscoveryClient(c)
 	return &cs

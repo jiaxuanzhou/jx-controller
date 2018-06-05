@@ -22,17 +22,17 @@ import (
 	testing "k8s.io/client-go/testing"
 )
 
-type FakeJxV1alpha1 struct {
+type FakeJiaxuanV1alpha1 struct {
 	*testing.Fake
 }
 
-func (c *FakeJxV1alpha1) JxTasks(namespace string) v1alpha1.JxTaskInterface {
+func (c *FakeJiaxuanV1alpha1) JxTasks(namespace string) v1alpha1.JxTaskInterface {
 	return &FakeJxTasks{c, namespace}
 }
 
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
-func (c *FakeJxV1alpha1) RESTClient() rest.Interface {
+func (c *FakeJiaxuanV1alpha1) RESTClient() rest.Interface {
 	var ret *rest.RESTClient
 	return ret
 }

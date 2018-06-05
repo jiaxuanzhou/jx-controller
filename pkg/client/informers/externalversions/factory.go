@@ -170,9 +170,9 @@ type SharedInformerFactory interface {
 	ForResource(resource schema.GroupVersionResource) (GenericInformer, error)
 	WaitForCacheSync(stopCh <-chan struct{}) map[reflect.Type]bool
 
-	Jx() jx.Interface
+	Jiaxuan() jx.Interface
 }
 
-func (f *sharedInformerFactory) Jx() jx.Interface {
+func (f *sharedInformerFactory) Jiaxuan() jx.Interface {
 	return jx.New(f, f.namespace, f.tweakListOptions)
 }
