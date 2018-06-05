@@ -73,6 +73,9 @@ func Run(opt *options.ServerOption) error {
 	kubeInformerFactory := kubeinformers.NewSharedInformerFactory(kubeClientSet, resyncPeriod)
 
 	jxInformer := controller.NewJxTaskInformer(kcfg)
+
+	fmt.Println(jxInformer)
+
 	// 2, Create jx controller.
 	jc := controller.NewJxController(kubeClientSet, jxTaskClientSet, jxInformer, kubeInformerFactory)
 
