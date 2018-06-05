@@ -1,9 +1,10 @@
 package main
 
 import (
+	"github.com/jiaxuanzhou/jx-controller/cmd/jx-controller/app"
+	"github.com/jiaxuanzhou/jx-controller/cmd/jx-controller/app/options"
 	"github.com/onrik/logrus/filename"
 	log "github.com/sirupsen/logrus"
-	"github.com/jiaxuanzhou/jx-controller/cmd/jx-controller/app/options"
 
 	"flag"
 )
@@ -31,4 +32,3 @@ func main() {
 	}
 
 }
-
